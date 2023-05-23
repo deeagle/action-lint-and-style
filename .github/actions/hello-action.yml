@@ -1,0 +1,14 @@
+name: Hello-Action
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Step 1
+        run: "echo hello from action-lint-and-style/.github/action/hello-action!"
