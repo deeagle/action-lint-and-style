@@ -1,3 +1,5 @@
+---
+
 name: Hello-Action
 on:
   workflow_call:
