@@ -1,0 +1,26 @@
+name: Validate-YAML
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - assigned
+      - edited
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  lint-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Validate YAML file
+        run: yamllint .
