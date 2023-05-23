@@ -1,6 +1,7 @@
 ---
 
-name: Hello-Action
+name: Validate-YAML
+
 on:
   push:
     branches:
@@ -12,15 +13,16 @@ on:
       - opened
       - synchronize
       - reopened
-  workflow_call:
 
 jobs:
-  build:
+  lint-yaml:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Step 1
-        run: "echo hello, Github Actions!"
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Validate YAML file
+        run: yamllint .
